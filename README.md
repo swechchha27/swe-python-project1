@@ -1,7 +1,8 @@
 - 👋 Hi, I’m Swechchha
-- 👀 I’m interested in Programming
 - 🌱 I’m currently learning Python
-- 📫 How to reach me : swechchhagoyal27@gmail.com
+- I am trying to create a text-based interactive game here
+- If anyone can review or imporove my code, thanks in advance😊
+- But please create your own branch first
 
 <!---
 swechchha27/swechchha27 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
