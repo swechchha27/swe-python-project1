@@ -1,7 +1,7 @@
 - 👋 Hi, I’m Swechchha
 - 🌱 I’m currently learning Python
 - I am trying to create a text-based interactive game here
-- If anyone can review or imporove my code, thanks in advance😊
+- If anyone can review or improve my code, thanks in advance😊
 - But please create your own branch first
 
 <!---
