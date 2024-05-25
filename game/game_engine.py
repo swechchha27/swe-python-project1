@@ -1,4 +1,4 @@
-from character import Character
+from characters.character import Character
 
 class GameEngine:
     def __init__(self):

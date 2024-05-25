@@ -1,0 +1,14 @@
+life_game/
+├── characters/
+│   ├── __init__.py
+│   ├── character.py
+├── events/
+│   ├── __init__.py
+│   ├── event.py
+├── game/
+│   ├── __init__.py
+│   ├── game.py
+├── main.py
+├── requirements.txt
+├── README.md
+└── .gitignore

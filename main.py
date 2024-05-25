@@ -1,38 +1,38 @@
-from colorama import Fore, Back, Style
-from game_engine import GameEngine
+from game.game import Game
 
-RED = Fore.RED
-YELLOW = Fore.YELLOW
-GREEN = Fore.GREEN
-BLUE = Fore.BLUE
-RESET = Fore.RESET
-BRIGHT = Style.BRIGHT
-RESET_ALL = Style.RESET_ALL
+def main():
+    print("Welcome to the Life Simulator Game!")
 
-def start_game():
-    print(f"****************************************************")
-    print(GREEN + f"Welcome to the Game of Life." + RESET_ALL)
-    print(f"****************************************************")
-    print(Back.BLACK)
-    s_continue = input("Would you like to Begin(y/n)? ")
-    print(RESET_ALL)
-    match s_continue.upper().strip():
-        case "Y" : 
-            print(f"****************************************************")
-            print(Back.GREEN + f"Starting THE GAME OF LIFE." + RESET_ALL)
-            print(f"****************************************************")
-            game_engine = GameEngine()
-            print(BLUE + Back.BLACK)
-            game_engine.start()
-            print(RESET_ALL)
-        case "N" : 
-            print(f"****************************************************")
-            print(RED + "THE END." + RESET)
-            print(f"****************************************************")
-        case _ : 
-            print(RED + f"Invalid argument '{s_continue}'. Please type 'y' or 'n'." + RESET)
-        
+    game = Game()
 
-if __name__ == '__main__':
-    start_game()
-    
+    while True:
+        print("\n1. Create Character")
+        print("2. Run Year")
+        print("3. Save Game")
+        print("4. Load Game")
+        print("5. Quit")
+
+        choice = input("Enter your choice: ")
+
+        if choice == "1":
+            name = input("Enter name: ")
+            gender = input("Enter gender: ")
+            birth_location = input("Enter birth location: ")
+            game.create_character(name, gender, birth_location)
+        elif choice == "2":
+            game.run_year()
+        elif choice == "3":
+            slot = int(input("Enter save slot (1-3): "))
+            game.save_game(slot)
+        elif choice == "4":
+            slot = int(input("Enter load slot (1-3): "))
+            game.load_game(slot)
+        elif choice == "5":
+            break
+        else:
+            print("Invalid choice.")
+
+    game.character.display_life_summary()
+
+if __name__ == "__main__":
+    main()

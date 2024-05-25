@@ -1,0 +1,77 @@
+{
+    "character": {
+        "name": "Destine",
+        "gender": "Female",
+        "birth_location": "USA",
+        "age": 9,
+        "life_events": [
+            {
+                "description": "Won a prize",
+                "effects": {
+                    "confidence": 2
+                }
+            },
+            {
+                "description": "Started a new hobby",
+                "effects": {
+                    "crafting": 1,
+                    "happiness": 1
+                }
+            },
+            {
+                "description": "Had an argument",
+                "effects": {
+                    "anger": 1,
+                    "happiness": -1
+                }
+            },
+            {
+                "description": "Got sick",
+                "effects": {
+                    "health": -2
+                }
+            },
+            {
+                "description": "Had a big meal",
+                "effects": {
+                    "hunger": 3
+                }
+            }
+        ],
+        "necessities": {
+            "thirst": 1,
+            "hunger": 4,
+            "energy": 2,
+            "health": 8
+        },
+        "emotions": {
+            "anger": 1,
+            "sadness": 0,
+            "happiness": 10,
+            "fear": 0
+        },
+        "traits": {
+            "strength": 6,
+            "intelligence": 7,
+            "charm": 5,
+            "confidence": 7,
+            "creativity": 5,
+            "discipline": 5
+        },
+        "skills": {
+            "cooking": 0,
+            "reading": 0,
+            "writing": 0,
+            "music": 0,
+            "sports": 0,
+            "painting": 0,
+            "crafting": 1,
+            "persuasion": 0,
+            "combat": 0,
+            "crime": 0,
+            "programming": 0,
+            "public_speaking": 0
+        }
+    },
+    "slot": 1
+}

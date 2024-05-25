@@ -1,0 +1,12 @@
+# Ignore virtual environment files
+.env
+.venv
+env/
+venv/
+# Ignore compiled Python files
+*.pyc
+# Ignore editor-specific files
+.vscode/
+.idea/
+# Byte-compiled / optimized / DLL files
+__pycache__/
