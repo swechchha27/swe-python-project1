@@ -1,4 +1,3 @@
-from tabulate import tabulate
 import time
 import sys
 import pygame
