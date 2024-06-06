@@ -1,5 +1,6 @@
 import os
 import json
+from enum import Enum
 
 SAVE_SLOTS = 3
 SAVE_DIR = "saves"
@@ -39,3 +40,20 @@ def load_game(slot):
         character = Character.from_dict(character_data)
         print(f"Game loaded from slot {slot}.")
         return character
+
+
+def get_simple_choice(enum_options, prompt):
+    options_str = "/".join([e.name for e in enum_options])
+    while True:
+        print(prompt)
+        for e in enum_options:
+            print(f"{e.name}: {e.value}")
+            choice = input(f"Enter choice ({options_str}): ").upper()
+        if choice in enum_options.__members__:
+            return enum_options[choice]
+        else:
+            print(f"Invalid input. Please choose from {options_str}.")
+
+# Function to dynamically create an Enum
+def create_enum(name, values):
+    return Enum(name, {value.keys(): value.values() for value in values})

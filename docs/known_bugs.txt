@@ -1,0 +1,26 @@
+1. Load Game-->loads twice
+2. death-->summary should say like he lived these many years, etc.
+, summarize life events instead of stating all, 
+life_summary-->Birth Location: (self.birth_location)
+weight, bodymassetc, bp, pulserate, vitamins, cholestoerol, glucose, eye number
+body muscular abs where
+birthmark, wounds, amputations,
+
+input name,gender,birth appear one by one
+creating random character-->doesnt display
+random character details displayed on console
+rectangle draw , create? -->and border round corners?
+slot input should be dropdown
+unable to load slot -->
+project1\utilities\utility.py", line 40, in load_game
+    character = Character.from_dict(character_data)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\swechchha.agarwal\OneDrive - Accenture\Documents\Personal\Learning\VScode_Python\swe-python-project1\characters\character.py", line 259, in from_dict
+    character = cls(data["name"], data["gender"], data["birth_origin"])
+                                                  ~~~~^^^^^^^^^^^^^^^^
+KeyError: 'birth_origin'
+
+back to menu button
+
+run year has error 
+we also need to uncomment and reqrite display_life_summary

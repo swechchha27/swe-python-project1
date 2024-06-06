@@ -1,6 +1,14 @@
+from characters.character import Character
 import random
 
 class Event:
+    event_categories = {
+        "health": 0.2,
+        "social": 0.3,
+        "educational": 0.2,
+        "financial": 0.2,
+        "miscellaneous": 0.1
+    }
     def __init__(self, description, effects):
         self.description = description
         self.effects = effects
@@ -28,6 +36,13 @@ class Event:
                 self.modify_attribute(character.traits, attribute, change)
             elif attribute in character.skills:
                 self.modify_attribute(character.skills, attribute, change)
+            elif attribute == "cash":
+                character.cash = character.cash + change
+            # handle nested dictionaries for skills
+            elif attribute == "skills":
+                for skill, skill_change in change.items():
+                    if skill in character.skills:
+                        character.skills[skill] = max(0, character.skills[skill] + skill_change)
 
     def modify_attribute(self, attributes, attribute, change):
         attributes[attribute] = max(0, min(10, attributes[attribute] + change))
@@ -43,19 +58,50 @@ class Event:
     #     character.emotions['happiness'] = max(0, character.emotions['happiness'] - 1)
     #     print(f"Had an argument. Anger: {character.emotions['anger']}, Happiness: {character.emotions['happiness']}")
 
-def generate_random_event():
-    events = [
-        Event("Got sick", {"health": -2}),
-        Event("Went on a trip", {"energy": -1, "happiness": 1}),
-        Event("Had a big meal", {"hunger": 3}),
-        Event("Went to bed early", {"energy": 2}),
-        Event("Learned a new skill", {"intelligence": 1}),
-        Event("Had an argument", {"anger": 1, "happiness": -1}),
-        Event("Won a prize", {"confidence": 2}),
-        Event("Started a new hobby", {"crafting": 1, "happiness": 1}),
-        Event("Got a promotion", {"confidence": 2, "income": 1})
+def generate_random_event(character):
+    health_events = [
+        {"preconditions": {"": True, "": False}
+         , "description": "Caught a cold."
+         , "effects": {"health": -1, "energy": -1}},
+        {"preconditions": {"": True, "": False}
+         , "description": "Visited a doctor for a check-up."
+         , "effects": {"health": +1, "cash": -10}}
     ]
-    return random.choice(events)
+    social_events = [
+        {"preconditions": {"": True, "": False}, "description": "Made a new friend.", "effects": {"happiness": +2, "confidence": +1}},
+        {"preconditions": {"": True, "": False}, "description": "Had an argument with a friend.", "effects": {"happiness": -2, "anger": +2}}
+    ]
+    educational_events = [
+        {"preconditions": {"": True, "": False}, "description": "Attended a lecture on AI.", "effects": {"intelligence": +2}},
+        {"preconditions": {"": True, "": False}, "description": "Failed a test.", "effects": {"intelligence": -1, "confidence": -2}}
+    ]
+    financial_events = [
+        {"preconditions": {"": True, "": False}, "description": "Found a $20 bill on the ground.", "effects": {"cash": +20}},
+        {"preconditions": {"": True, "": False}, "description": "Lost your wallet.", "effects": {"cash": -50}}
+    ]
+    miscellaneous_events = [
+        {"preconditions": {"": True, "": False}, "description": "Went on a spontaneous trip.", "effects": {"happiness": +3, "cash": -30}},
+        {"preconditions": {"": True, "": False}, "description": "Learned a new hobby.", "effects": {"skills": {"crafting": +1}}}
+    ]
+    event_pool = {
+        "health": health_events,
+        "social": social_events,
+        "educational": educational_events,
+        "financial": financial_events,
+        "miscellaneous": miscellaneous_events
+    }
+    category = random.choices(
+        list(Event.event_categories.keys()), 
+        weights=list(Event.event_categories.values()), 
+        k=1
+    )[0]
+    available_events = event_pool[category]
+    event_data = random.choice(available_events)
+    random_event = Event(event_data["description"], event_data["effects"])
+    character.add_life_event(random_event)
+    print(f"Event: {random_event}")
+    random_event.trigger(character)
+
 
 def user_choice_event(character):
     print("You have an important decision to make:")

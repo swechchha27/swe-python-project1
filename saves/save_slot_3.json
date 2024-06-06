@@ -1,0 +1,97 @@
+{
+    "character": {
+        "name": "Destine",
+        "gender": "Female",
+        "birth_location": "USA",
+        "age": 14,
+        "life_events": [
+            {
+                "description": "Won a prize",
+                "effects": {
+                    "confidence": 2
+                }
+            },
+            {
+                "description": "Started a new hobby",
+                "effects": {
+                    "crafting": 1,
+                    "happiness": 1
+                }
+            },
+            {
+                "description": "Had an argument",
+                "effects": {
+                    "anger": 1,
+                    "happiness": -1
+                }
+            },
+            {
+                "description": "Got sick",
+                "effects": {
+                    "health": -2
+                }
+            },
+            {
+                "description": "Had a big meal",
+                "effects": {
+                    "hunger": 3
+                }
+            },
+            {
+                "description": "Started a new hobby",
+                "effects": {
+                    "crafting": 1,
+                    "happiness": 1
+                }
+            },
+            {
+                "description": "Had an argument",
+                "effects": {
+                    "anger": 1,
+                    "happiness": -1
+                }
+            },
+            {
+                "description": "Went to bed early",
+                "effects": {
+                    "energy": 2
+                }
+            }
+        ],
+        "necessities": {
+            "thirst": 0,
+            "hunger": 0,
+            "energy": 2,
+            "health": 3
+        },
+        "emotions": {
+            "anger": 2,
+            "sadness": 0,
+            "happiness": 10,
+            "fear": 0
+        },
+        "traits": {
+            "strength": 7,
+            "intelligence": 8,
+            "charm": 5,
+            "confidence": 7,
+            "creativity": 5,
+            "discipline": 5
+        },
+        "skills": {
+            "cooking": 0,
+            "reading": 0,
+            "writing": 0,
+            "music": 0,
+            "sports": 0,
+            "painting": 0,
+            "crafting": 2,
+            "persuasion": 0,
+            "combat": 0,
+            "crime": 0,
+            "programming": 0,
+            "public_speaking": 0
+        }
+    },
+    "slot": 3
+}
