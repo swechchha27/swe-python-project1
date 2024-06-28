@@ -85,10 +85,10 @@ def generate_random_event(character):
     random_event = Event(event_data["description"], event_data["effects"])
     character.add_life_event(random_event)
     return_text="\n" + f"Event: {random_event}"
-    print(return_text)
+    print("Random event generated:" + return_text)
     TextManager.add_text(return_text)
     return_text = "\n" + random_event.trigger(character)
-    print(return_text)
+    print("Triggered impact of event on character:" + return_text)
     TextManager.add_text(return_text)
 
 def user_choice_event(character):

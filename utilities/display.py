@@ -228,13 +228,15 @@ def display_aligned_text(screen, text, position, alignment='left', font=text_fon
 def display_text_with_effects(text, position, effects=[], font=text_font, color=TEXT_COLOR, alignment='left', **kwargs):
     screen=ScreenManager.get_screen()
     screen_area = None if not kwargs.get('screen_area') else kwargs['screen_area']
-    print(screen_area)
-    positions = calculate_aligned_position(text, alignment, font, screen_area=screen_area)
-    print(positions)
+    # print(screen_area)
+    # positions = calculate_aligned_position(text, alignment, font, screen_area=screen_area)
+    # print(positions)
     for effect in effects:
-        for line, (x, y) in zip(text.split('\n'), positions):
-            print(line)
-            text = effect(screen, line, (x, y), font=font, color=color, **kwargs)
+        # for line, (x, y) in zip(text.split('\n'), positions):
+        #     print(f"Printing with effects : {line} : at position : {(x,y)}")
+        #     text = effect(screen, line, (x, y), font=font, color=color, **kwargs)
+        line = text.strip('\n')
+        text = effect(screen, line, position, font=font, color=color, **kwargs)
     # display_aligned_text(screen, text, position, alignment=alignment, font=font, color=color)
 
 @add_effects([typewriter_effect])
