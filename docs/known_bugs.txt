@@ -24,3 +24,10 @@ back to menu button
 
 run year has error 
 we also need to uncomment and reqrite display_life_summary
+
+
+display form validation errors on screen
+
+button text on wrapping doesnt leave margin
+
+click krne pe radio button color not chasnged, tab se ho jata h

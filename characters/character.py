@@ -200,22 +200,25 @@ class Character:
     def age_one_year(self):
         self.age += 1
         self.decrease_needs()
-        print(f"{self.name} is now {self.age} years old.")
-        self.check_health()
+        return_text = f"\n{self.name} is now {self.age} years old."
+        return_text += self.check_health()
+        return return_text
 
     def decrease_needs(self):
         for need in self.necessities:
             if need != "health":
                 self.necessities[need] = max(0, self.necessities[need] - 1)
-        display_dict("Necessities", self.necessities)
+        # display_dict("Necessities", self.necessities)
 
     def check_health(self):
+        return_text = ''
         if self.necessities['thirst'] == 0 or self.necessities['hunger'] == 0 or self.necessities['energy'] == 0:
             self.necessities['health'] = max(0, self.necessities['health'] - 1)
-            print(f"{self.name} is feeling worse. health: {self.necessities['health']}")
+            return_text += f"\n{self.name} is feeling worse. health: {self.necessities['health']}"
         if self.necessities['health'] == 0:
             self.isAlive = False
-            print(f"{self.name} has died.")
+            return_text += f"\n{self.name} has died."
+        return return_text
 
     def add_life_event(self, event):
         self.life_events.append(event)
